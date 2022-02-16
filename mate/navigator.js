@@ -15,18 +15,12 @@ const NextPageButton = (paramPage) => {
     // )} />
     <Button
       title={text}
-      style={styles.button}
       onPress={() => {
         navigation.navigate(paramPage.page);
       }}
     />
   );
 
-  const styles = StyleSheet.create({
-    button: {
-      marginTop: "10px"
-    }
-  })
 }
 
 export default NextPageButton

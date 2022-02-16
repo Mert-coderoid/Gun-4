@@ -62,4 +62,4 @@ function HomeScreen({ navigation }) {
 //     width: 500,
 //     height: 550,
 //   }
-})
+// })

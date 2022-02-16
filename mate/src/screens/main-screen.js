@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { View, Button } from "react-native";
-import { useNavigation } from '@react-navigation/native';
 import NextPageButton from '../../navigator';
 
 export default class MainScreen extends Component {
@@ -13,7 +12,6 @@ export default class MainScreen extends Component {
             <View>
                 <NextPageButton page="Home" />
                 <NextPageButton page="DetailsScreen" />
-
             </View>
         )
     }
