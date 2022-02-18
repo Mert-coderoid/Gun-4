@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { View, Button } from "react-native";
-import NextPageButton from '../../navigator';
+import NextPageButton from '../navigator/navigator';
 
 export default class MainScreen extends Component {
     constructor(props) {

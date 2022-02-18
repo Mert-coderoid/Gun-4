@@ -5,6 +5,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { navigationRef } from './RootNavigation';
 import DetailsScreen from './src/screens/details-screen.js';
+import UsersScreen from './src/screens/users-screen.js';
+import TodoScreen from './src/screens/todo-screen.js';
 
 const Stack = createNativeStackNavigator();
 
@@ -17,6 +19,9 @@ export default function App() {
         <Stack.Screen name='MainScreen' component={MainScreen} />
         <Stack.Screen name='LoginScreen' component={LoginScreen} />
         <Stack.Screen name='DetailsScreen' component={DetailsScreen} />
+        <Stack.Screen name='UsersScreen' component={UsersScreen} />
+        <Stack.Screen name='TodoScreen' component={TodoScreen} />
+
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -38,28 +43,3 @@ function HomeScreen({ navigation }) {
 
   );
 }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     backgroundColor: "#D9F6E0",
-//     flex: 1,
-//     flexDirection: "column",
-//     // justifyContent : 'center',
-//     // paddingTop :  "35% ",
-//     // alignItems : 'center',
-//   },
-//   oval: {
-//     borderWidth: 1.5,
-//     borderColor: "#003406",
-//     backgroundColor: "#FF3214",
-//     borderTopLeftRadius: 0,
-//     borderTopRightRadius: 0,
-//     borderBottomLeftRadius: 250,
-//     borderBottomRightRadius: 250,
-//     // justifyContent : 'center',
-//     // paddingTop :  "35% ",
-//     // alignItems : 'center',
-//     width: 500,
-//     height: 550,
-//   }
-// })
