@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { View, Text, TextInput, StyleSheet, TouchableOpacity } from "react-native"
 import { auth } from "../../firebase-config"
-import * as RootNavigation from "../../RootNavigation.js"
+import * as RootNavigation from "../navigator/RootNavigation.js"
 import './app.css'
 import styled from "styled-components";
 

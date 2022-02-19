@@ -3,12 +3,12 @@ import LoginScreen from "./src/screens/login-screen.js"
 import MainScreen from './src/screens/main-screen.js';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { navigationRef } from './RootNavigation';
+import { navigationRef } from './src/navigator/RootNavigation';
 import DetailsScreen from './src/screens/details-screen.js';
 import UsersScreen from './src/screens/users-screen.js';
 import TodoScreen from './src/screens/todo-screen.js';
 // import Ionicons from 'react-native-vector-icons/Ionicons';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+// import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 const Stack = createNativeStackNavigator();
 // const Tab = createBottomTabNavigator();
