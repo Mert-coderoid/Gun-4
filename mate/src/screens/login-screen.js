@@ -2,7 +2,51 @@ import React, { Component } from 'react'
 import { View, Text, TextInput, StyleSheet, TouchableOpacity } from "react-native"
 import { auth } from "../../firebase-config"
 import * as RootNavigation from "../../RootNavigation.js"
+import './app.css'
+import styled from "styled-components";
 
+const StyledButton = styled.section`
+
+        position: relative;
+        background: #fff;
+        height: 578px;
+        border-color: #000;
+        border-style: solid;
+        width: auto; 
+        border-width: 5px 250px 5px 5px;
+        border-radius: 50%;
+        animation: roll 40000s infinite;
+        justify-content : center,
+        padding-top :  35%,
+        align-ıtems : center,
+    } `
+
+const StyledButton2 = styled.section`
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        background: #fff;
+        border: 95px solid #000;
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        `;
+    
+const StyledButton3 = styled.section`
+   
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        background: #000;
+        border: 95px solid #fff;
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+    }
+    
+    `;
 
 export default class LoginScreen extends Component {
     constructor(props) {
@@ -14,40 +58,6 @@ export default class LoginScreen extends Component {
             password: "123456"
         }
     }
-    styles = StyleSheet.create({
-        txtInput: {
-            borderWidth: 1.5,
-            backgroundColor: "white",
-            flex: 1,
-            borderColor: "#7839A8",
-            padding: 5,
-            margin: 10,
-        },
-
-        buttonContainer: {
-            flex: 1,
-            flexDirection: "row",
-            justifyContent: "space-around",
-        },
-
-        imageArea: {
-            paddingTop: "35%"
-        },
-
-        oval: {
-            borderWidth: 1.5,
-            borderColor: "#003406",
-            backgroundColor: "#FF3214",
-            borderTopLeftRadius: 0,
-            borderTopRightRadius: 0,
-            borderBottomLeftRadius: 250,
-            borderBottomRightRadius: 250,
-            // justifyContent : 'center',
-            // paddingTop :  "35% ",
-            // alignItems : 'center',
-            height: "85%"
-        }
-    })
 
     loginHandler = () => {
         console.log("THİS PROPS: ", this.props)
@@ -80,43 +90,88 @@ export default class LoginScreen extends Component {
 
     }
 
+    styles = StyleSheet.create({
+        txtInput: {
+            borderWidth: 1.5,
+            backgroundColor: "white",
+            borderColor: "#7839A8",
+            padding: 5,
+            marginLeft: 25,
+            marginRight: 25,
+            margin: 10,
+
+        },
+
+        buttonContainer: {
+            flexDirection: "row",
+            justifyContent: "space-around",
+            borderWidth: 1.5,
+            width: "130%",
+            margin: "25%",
+        },
+
+        button: {
+            padding: 10,
+            margin: 10,
+            borderWidth: 1.5,
+            
+        },
+
+        imageArea: {
+            paddingTop: "35%"
+        },
+       
+        oval: {
+            height: "100%",
+            width: "173%",
+            justifyContent: "center",
+        } 
+        
+        
+    })
+
+
     render() {
         return (
-            <View style={this.styles.oval}>
-                <View style={this.styles.imageArea}>
+            <View>
 
-                </View>
-                <View>
-                    <TextInput
-                        style={this.styles.txtInput}
-                        value={this.state.userName}
-                        onChangeText={(text) => {
-                            this.setState({
-                                userName: text
-                            })
-                        }}>
-                    </TextInput>
+                <StyledButton>
+                    <StyledButton2></StyledButton2>
+                    <StyledButton3></StyledButton3>
+                    <imageArea></imageArea>
+                    <View style={this.styles.oval}>
+                        <TextInput
+                            value={this.state.userName}
+                            style={this.styles.txtInput}
+                            onChangeText={(text) => {
+                                this.setState({
+                                    userName: text
+                                })
+                            }}>
+                        </TextInput>
 
-                    <TextInput style={this.styles.txtInput}
-                        secureTextEntry
-                        value={this.state.password}
-                        onChangeText={(newPassword) => {
-                            this.setState({
-                                password: newPassword
-                            })
-                        }}>
-                    </TextInput>
-                </View>
+                        <TextInput
+                            secureTextEntry
+                            value={this.state.password}
+                            style={this.styles.txtInput}
+                            onChangeText={(newPassword) => {
+                                this.setState({
+                                    password: newPassword
+                                })
+                            }}>
+                        </TextInput>
+                        
+                    </View>                   
 
-                <View style={this.styles.buttonContainer}>
-                    <TouchableOpacity onPress={this.loginHandler}>
-                        <Text style={{ color: 'white' }}>Giriş</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={this.registerHandler}>
-                        <Text style={{ color: 'white' }}>Kayıt</Text>
-                    </TouchableOpacity>
-                </View>
-
+                    <View style={this.styles.buttonContainer}>
+                        <TouchableOpacity onPress={this.loginHandler}>
+                            <Text style={this.styles.button}>Giriş</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={this.registerHandler}>
+                            <Text style={this.styles.button}>Kayıt</Text>
+                        </TouchableOpacity>
+                    </View>
+                </StyledButton>
             </View>
         );
     }
