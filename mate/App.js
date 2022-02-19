@@ -36,9 +36,10 @@ export default function App() {
   return (
     <NavigationContainer ref={navigationRef}>
       <Stack.Navigator>
+        <Stack.Screen name='LoginScreen' component={LoginScreen} />
+
         <Stack.Screen name='Home' component={HomeScreen} />
         <Stack.Screen name='MainScreen' component={MainScreen} />
-        <Stack.Screen name='LoginScreen' component={LoginScreen} />
         <Stack.Screen name='DetailsScreen' component={DetailsScreen} />
         <Stack.Screen name='UsersScreen' component={UsersScreen} />
         <Stack.Screen name='TodoScreen' component={TodoScreen} />
@@ -48,6 +49,6 @@ export default function App() {
     </NavigationContainer>
   );
 
-  
+
 }
 

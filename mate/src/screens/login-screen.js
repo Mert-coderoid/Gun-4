@@ -32,7 +32,7 @@ const StyledButton2 = styled.section`
         width: 100px;
         height: 100px;
         `;
-    
+
 const StyledButton3 = styled.section`
    
         content: '';
@@ -44,9 +44,10 @@ const StyledButton3 = styled.section`
         border-radius: 50%;
         width: 100px;
         height: 100px;
-    }
+    
     
     `;
+
 
 export default class LoginScreen extends Component {
     constructor(props) {
@@ -105,30 +106,98 @@ export default class LoginScreen extends Component {
         buttonContainer: {
             flexDirection: "row",
             justifyContent: "space-around",
-            borderWidth: 1.5,
-            width: "130%",
+            width: "170%",
             margin: "25%",
         },
 
         button: {
             padding: 10,
             margin: 10,
-            borderWidth: 1.5,
-            
+            borderRadius: 50,
+            height: 50,
+            borderWidth: "5px 250px 5px 5px",
+
+
+
         },
+
+        button1 : {
+            content: '',
+            position: "absolute",
+            top: "15px",
+            left: "55%",
+            background: "#fff",
+            border: "15px solid #000",
+            borderRadius: "50%",
+            width: "10px",
+            height: "10px",
+            alignItems: "flex-start",
+            justifyContent: "center",
+        },
+
+        button2 : {
+            content: '',
+            position: "absolute",
+            top: "15px",
+            left: "10%",
+            background: "#fff",
+            border: "15px solid #fff",
+            borderRadius: "50%",
+            width: "10px",
+            height: "10px",
+            alignItems: "flex-start",
+            justifyContent: "center",
+
+        
+        
+        },
+
+        is : {
+            marginStart: "-9px",
+            color:"white",
+            fontSize: "15px",
+        },
+
+        
+        gir : {
+            marginStart: "-10px",
+            fontSize: "15px",
+        },
+
+
 
         imageArea: {
             paddingTop: "35%"
         },
-       
+
         oval: {
             height: "100%",
             width: "173%",
             justifyContent: "center",
-        } 
-        
-        
+        },
+
+        root: {
+            // position: "relative",
+            // borderColor: "#000000",
+            // borderStyle: "solid",
+            // width: "auto",
+            // borderWidth: "2px 25px 2px 2px",
+            // borderRadius: "50%",
+            // animation: "roll 40000s infinite",
+            // justifyContent : "center",
+            // paddingTop :  "35%",
+            // alignItems : "center",
+            border: "1px solid #fff",
+            backgroundColor: "#000000",
+            borderBottomEndRadius: "100%",
+            borderBottomStartRadius: "100%",
+            borderTopLeftRadius: "100%",
+            borderTopRightRadius: "100%",
+
+        },
+
     })
+
 
 
     render() {
@@ -138,7 +207,8 @@ export default class LoginScreen extends Component {
                 <StyledButton>
                     <StyledButton2></StyledButton2>
                     <StyledButton3></StyledButton3>
-                    <imageArea></imageArea>
+                    {/* <imageArea></imageArea> */}
+
                     <View style={this.styles.oval}>
                         <TextInput
                             value={this.state.userName}
@@ -164,13 +234,23 @@ export default class LoginScreen extends Component {
                     </View>                   
 
                     <View style={this.styles.buttonContainer}>
-                        <TouchableOpacity onPress={this.loginHandler}>
-                            <Text style={this.styles.button}>Giriş</Text>
+                        <TouchableOpacity style={this.styles.root} onPress={this.loginHandler}>
+                                <View style={this.styles.button1}><Text style={this.styles.is}>iş</Text></View>
+                                <View style={this.styles.button2}><Text style={this.styles.gir}>Gir</Text></View>
+                            <Text style={this.styles.button}>-----</Text>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity style={this.styles.root} onPress={this.registerHandler}>
+                                <View style={this.styles.button1}><Text style={this.styles.is}>ıt</Text></View>
+                                <View style={this.styles.button2}><Text style={this.styles.gir}>Kay</Text></View>
+                            <Text style={this.styles.button}>-----</Text>
                         </TouchableOpacity>
                         <TouchableOpacity onPress={this.registerHandler}>
-                            <Text style={this.styles.button}>Kayıt</Text>
                         </TouchableOpacity>
                     </View>
+        
+
+
                 </StyledButton>
             </View>
         );
