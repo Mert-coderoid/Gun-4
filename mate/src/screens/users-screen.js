@@ -8,10 +8,14 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import CardActions from "@material-ui/core/CardActions";
 
-const User = () => {
-  const [datas, setDatas] = useState(false)
 
+  // create a component
+const User = () => {
+    // create a state
+  const [datas, setDatas] = useState(false)
+  // get data from api
   const getData = async () => {
+      // use await to wait for the data to be fetched
     await api.get('/users').then(response => {
       setDatas(response.data)
       console.log(response.data)
@@ -19,24 +23,26 @@ const User = () => {
       console.error(error)
     })
   }
+
+  // useEffect is a hook that runs after the component is rendered
   useEffect(() => {
     getData()
   }, [])
 
+    // this is the render function
   return (
     // Using react-natives built in components.
     <View style={styles.container}>
-
-      <h4 style={{ color: "#fff" }}>How to use CardComponent in ReactJS?</h4>
-
-
+        {/* // Using the FlatList component. */}
       <FlatList
+        // keyExtractor is a function that returns a unique key for each item in the array.
         keyExtractor={(item) => item.id}
+        // data is the array of data that we want to render.
         data={datas}
+        // renderItem is a function that returns a component for each item in the array.
         renderItem={({ item }) => (
-
-
           <div style={{}}>
+            {/* // Using the Card component. */}
             <Card
               style={{
                 width: 400,
@@ -75,19 +81,17 @@ const User = () => {
               </CardActions>
             </Card>
             <br></br>
-
           </div>
-
-
         )}
       />
-
     </View>
   );
 }
 
+  // define your styles
 export default User;
 
+  // define your styles
 const styles = StyleSheet.create({
   container: {
     flex: 1,

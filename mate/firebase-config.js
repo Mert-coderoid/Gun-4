@@ -1,7 +1,9 @@
+
 import firebase from "firebase";
 
 
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    // firebaseConfig is configrations for firebase
 const firebaseConfig = {
     apiKey: "AIzaSyCCUJifqhd_9kNQMI8ckDc7a5vMNqz6-Wg",
     authDomain: "mahmood-5fe81.firebaseapp.com",
@@ -19,7 +21,6 @@ if (firebase.apps.length === 0) {
 } else {
     app = firebase.app();
 }
-
 
 const fireStore = firebase.firestore();
 const auth = firebase.auth();

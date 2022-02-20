@@ -1,10 +1,16 @@
 import React, { Component } from 'react'
-import { View, Text, TextInput, StyleSheet, TouchableOpacity } from "react-native"
+import { View, Text, TextInput, StyleSheet, TouchableOpacity, Button } from "react-native"
 import { auth } from "../../firebase-config"
 import * as RootNavigation from "../navigator/RootNavigation.js"
 import './app.css'
 import styled from "styled-components";
+import { navigationRef } from "../navigator/RootNavigation.js"
+import NextPageButton from '../navigator/navigator'
 
+// create styled.section for login screen
+
+// creating a Ying Yang style for the login screen with styled.section
+// styled.section is a function that takes css syntax and converts it to react expo syntax
 const StyledButton = styled.section`
 
         position: relative;
@@ -49,6 +55,7 @@ const StyledButton3 = styled.section`
     `;
 
 
+// create login screen
 export default class LoginScreen extends Component {
     constructor(props) {
         super(props);
@@ -60,22 +67,28 @@ export default class LoginScreen extends Component {
         }
     }
 
+    // login handler function for login button
     loginHandler = () => {
         console.log("THİS PROPS: ", this.props)
+        // signInWithEmailAndPassword is a firebase function
         auth.signInWithEmailAndPassword(this.state.userName, this.state.password).then((uc) => {
             if (uc.user) {
                 console.log(uc.user, "giriş yapıldı")
+                // if user is logged in, navigate to home screen
                 RootNavigation.navigate('MainScreen', { userName: 'Lucy' });
             }
             else {
                 console.log("kullanıcı bulunamadı.");
             }
+            // if an error occurs, catch the error
         }).catch(err => {
             console.log("MERT HATA BURADA !!! ", err);
         });
     }
 
+    // register handler function for register button
     registerHandler = () => {
+        // createUserWithEmailAndPassword is a firebase function
         auth.createUserWithEmailAndPassword(this.state.userName, this.state.password).then((uc) => {
             if (uc.user) {
                 console.log("Kullanıcı yaratıldı");
@@ -83,6 +96,7 @@ export default class LoginScreen extends Component {
             else {
                 console.log("kullancı yaratmak Allah'a mahsustur...")
             }
+            // if an error occurs, catch the error
         }).catch(err => {
             console.log("MERT BURAYA BAK !!! \nkullancı yaratmak Allah'a mahsustur... \n", err)
         })
@@ -91,6 +105,7 @@ export default class LoginScreen extends Component {
 
     }
 
+    // creating styles for login screen
     styles = StyleSheet.create({
         txtInput: {
             borderWidth: 1.5,
@@ -108,6 +123,7 @@ export default class LoginScreen extends Component {
             justifyContent: "space-around",
             width: "170%",
             margin: "25%",
+            marginTop: "0%"
         },
 
         button: {
@@ -116,12 +132,9 @@ export default class LoginScreen extends Component {
             borderRadius: 50,
             height: 50,
             borderWidth: "5px 250px 5px 5px",
-
-
-
         },
 
-        button1 : {
+        button1: {
             content: '',
             position: "absolute",
             top: "15px",
@@ -135,7 +148,7 @@ export default class LoginScreen extends Component {
             justifyContent: "center",
         },
 
-        button2 : {
+        button2: {
             content: '',
             position: "absolute",
             top: "15px",
@@ -148,18 +161,18 @@ export default class LoginScreen extends Component {
             alignItems: "flex-start",
             justifyContent: "center",
 
-        
-        
+
+
         },
 
-        is : {
+        is: {
             marginStart: "-9px",
-            color:"white",
+            color: "white",
             fontSize: "15px",
         },
 
-        
-        gir : {
+
+        gir: {
             marginStart: "-10px",
             fontSize: "15px",
         },
@@ -199,7 +212,7 @@ export default class LoginScreen extends Component {
     })
 
 
-
+    // render function for login screen
     render() {
         return (
             <View>
@@ -230,26 +243,33 @@ export default class LoginScreen extends Component {
                                 })
                             }}>
                         </TextInput>
-                        
-                    </View>                   
-
+                    </View>
+                    <View style={{
+                            flexDirection:"row", 
+                            flex:1,
+                            alignItems:"flex-end",
+                            justifyContent:"center",
+                            width:"175%",
+                            marginTop:"5%",
+                            backgroundColor:"#000000"
+                            }}>
+                    <NextPageButton page="ResetPassword" ></NextPageButton>
+                    </View>
                     <View style={this.styles.buttonContainer}>
                         <TouchableOpacity style={this.styles.root} onPress={this.loginHandler}>
-                                <View style={this.styles.button1}><Text style={this.styles.is}>iş</Text></View>
-                                <View style={this.styles.button2}><Text style={this.styles.gir}>Gir</Text></View>
+                            <View style={this.styles.button1}><Text style={this.styles.is}>iş</Text></View>
+                            <View style={this.styles.button2}><Text style={this.styles.gir}>Gir</Text></View>
                             <Text style={this.styles.button}>-----</Text>
                         </TouchableOpacity>
 
                         <TouchableOpacity style={this.styles.root} onPress={this.registerHandler}>
-                                <View style={this.styles.button1}><Text style={this.styles.is}>ıt</Text></View>
-                                <View style={this.styles.button2}><Text style={this.styles.gir}>Kay</Text></View>
+                            <View style={this.styles.button1}><Text style={this.styles.is}>ıt</Text></View>
+                            <View style={this.styles.button2}><Text style={this.styles.gir}>Kay</Text></View>
                             <Text style={this.styles.button}>-----</Text>
                         </TouchableOpacity>
                         <TouchableOpacity onPress={this.registerHandler}>
                         </TouchableOpacity>
                     </View>
-        
-
 
                 </StyledButton>
             </View>

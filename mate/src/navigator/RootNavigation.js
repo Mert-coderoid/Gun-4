@@ -1,5 +1,11 @@
-// RootNavigation.js
 
+
+
+// This file for learning purposes only.
+
+
+
+// RootNavigation.js
 import { createNavigationContainerRef } from '@react-navigation/native';
 
 export const navigationRef = createNavigationContainerRef()

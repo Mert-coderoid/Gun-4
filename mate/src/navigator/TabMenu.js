@@ -1,3 +1,8 @@
+
+
+// this file for learning purposes only.
+
+
 /* import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MainScreen from '../screens/main-screen';
 import DetailsScreen from '../screens/details-screen';

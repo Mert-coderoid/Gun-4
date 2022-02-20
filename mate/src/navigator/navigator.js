@@ -1,47 +1,45 @@
 import * as React from 'react';
-import { Button } from 'react-native';
+import { Button, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-StyleSheet = require('react-native').StyleSheet;
-
-
+import { StyleSheet } from 'react-native';
+   
+  // We will do the navigation by calling the variable "NextPageButton"
+  // and passing the page name as a parameter.
+  
+    // Navigate to the selected page
+        // How To Use:
+            // 1. import NextPageButton from '../navigator/navigator'
+            // 2. Add the page name as a parameter in the NextPageButton function
+            
 const NextPageButton = (paramPage) => {
   //use navigation hook shown as below
   console.log(paramPage.page)
   let text = `Navigate to ${paramPage.page} `
   const navigation = useNavigation();
 
-  const css = StyleSheet.create({
-
-    button: {
-      marginTop: 10,
-      marginBottom: 10,
-      marginLeft: 10,
-      marginRight: 10,
-      padding: 10,
-      backgroundColor: '#7839A8',
-      borderRadius: 50,
-      borderWidth: 1,
-      borderColor: '#fff',
-      color: '#fff',
-      fontSize: 20,
-      fontWeight: 'bold',
-      textAlign: 'center',
+  
+    // Give some style to the button
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      justifyContent: 'center',
+      margin : "10px",
     },
   });
 
+    // Render the button
   return (
-    // <NextPageButton exact path="/details/:id" render={(props) => (
-    //   <DetailsPage id={props.match.params.id}/>
-    // )} />
+    <View style={styles.container}>
     <Button
-      style={css.button}
       title={text}
       onPress={() => {
         navigation.navigate(paramPage.page);
       }}
     />
+    </View>
   );
 
 }
 
+  // export NextPageButton for use in other files
 export default NextPageButton
