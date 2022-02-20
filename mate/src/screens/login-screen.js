@@ -62,8 +62,8 @@ export default class LoginScreen extends Component {
         console.log("İlk Constructor Çalıştı...");
         console.log("Cons tructor Çalıştı...");
         this.state = {
-            userName: "yilmazmert1501@gmail.com",
-            password: "123456"
+            userName: "username",
+            password: "password",
         }
     }
 
