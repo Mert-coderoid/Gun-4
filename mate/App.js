@@ -1,6 +1,7 @@
 
-
-// App.js is the main file for the app.
+// ------------------------------------
+// This file for learning purposes only.
+// ------------------------------------
 
 
 import { Button, StyleSheet, Text, TouchableOpacity, View } from 'react-native';

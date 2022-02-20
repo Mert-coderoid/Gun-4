@@ -12,6 +12,7 @@ import { StyleSheet } from 'react-native';
             // 2. Add the page name as a parameter in the NextPageButton function
             
 const NextPageButton = (paramPage) => {
+
   //use navigation hook shown as below
   console.log(paramPage.page)
   let text = `Navigate to ${paramPage.page} `
@@ -34,8 +35,7 @@ const NextPageButton = (paramPage) => {
       title={text}
       onPress={() => {
         navigation.navigate(paramPage.page);
-      }}
-    />
+      }}/>
     </View>
   );
 

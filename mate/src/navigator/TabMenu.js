@@ -1,6 +1,8 @@
 
 
-// this file for learning purposes only.
+// ------------------------------------
+// This file for learning purposes only.
+// ------------------------------------
 
 
 /* import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
